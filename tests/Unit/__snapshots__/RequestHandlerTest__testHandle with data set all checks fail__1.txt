@@ -11,7 +11,7 @@
                 "componentType": "dummy_select",
                 "status": "fail",
                 "time": "2024-01-01T00:01:00+00:00",
-                "output": "An exception occurred in the driver: could not find driver",
+                "output": "An exception occurred in the driver: SQLSTATE[HY000] [2002] No such file or directory",
                 "observedValue": "0",
                 "observedUnit": "ms"
             }
