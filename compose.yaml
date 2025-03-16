@@ -1,0 +1,14 @@
+services:
+  app:
+    image: php
+    working_dir: /app
+    volumes:
+      - .:/app
+    environment:
+      - PHP_CS_FIXER_IGNORE_ENV=1
+
+  composer:
+    image: composer
+    working_dir: /app
+    volumes:
+      - .:/app
