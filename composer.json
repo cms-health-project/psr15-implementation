@@ -2,6 +2,7 @@
     "name": "cms-health-project/psr15-implementation",
     "description": "PSR-15 implementation of the CMS HealthCheck RFC.",
     "type": "library",
+    "license": "MIT",
     "require": {
         "php": "^8.1",
         "cms-health-project/serializable-reference-implementation": "^0.0.3",
