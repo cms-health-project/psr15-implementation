@@ -1,0 +1,7 @@
+parameters:
+	ignoreErrors:
+		-
+			message: '#^Method CmsHealthProject\\Psr15Implementation\\Tests\\Unit\\RequestHandlerTest\:\:handleProvider\(\) should return array\<string, array\{list\<CmsHealthProject\\Psr15Implementation\\HealthChecker\\HealthCheckerInterface\>, int\}\> but returns array\{single check, success\: array\{array\{CmsHealthProject\\Psr15Implementation\\HealthChecker\\CallableHealthChecker\}, 200\}, single check, fail\: array\{array\{CmsHealthProject\\Psr15Implementation\\HealthChecker\\DoctrineConnectionHealthChecker\}, 503\}, all checks fail\: array\{array\{mixed, CmsHealthProject\\Psr15Implementation\\HealthChecker\\HttpHealthChecker\}, 503\}, multiple checks, one fail\: array\{array\{mixed, mixed\}, 503\}, multiple checks, fail on exception\: array\{array\{mixed, CmsHealthProject\\Psr15Implementation\\HealthChecker\\CallableHealthChecker\}, 503\}, multiple checks, success\: array\{array\{mixed, CmsHealthProject\\Psr15Implementation\\HealthChecker\\HttpHealthChecker\}, 200\}\}\.$#'
+			identifier: return.type
+			count: 1
+			path: tests/Unit/RequestHandlerTest.php
