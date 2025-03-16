@@ -11,20 +11,20 @@
         "psr/clock": "^1.0"
     },
     "require-dev": {
-        "friendsofphp/php-cs-fixer": "^3.72",
-        "phpstan/phpstan": "^2.1",
-        "phpstan/phpstan-phpunit": "^2.0",
-        "phpunit/phpunit": "^12.0",
         "doctrine/dbal": "^4.2",
-        "spatie/phpunit-snapshot-assertions": "^5.1",
-        "symfony/framework-bundle": "^7.2",
-        "symfony/clock": "^7.2",
+        "friendsofphp/php-cs-fixer": "^3.72",
         "guzzlehttp/guzzle": "^7.9",
         "guzzlehttp/psr7": "^2.7",
         "laminas/laminas-diactoros": "^3.5",
-        "symfony/psr-http-message-bridge": "^7.2",
         "nyholm/psr7": "^1.8",
         "php-http/discovery": "^1.20",
+        "phpstan/phpstan": "^2.1",
+        "phpstan/phpstan-phpunit": "^2.0",
+        "phpunit/phpunit": "^10 || ^11 || ^12",
+        "spatie/phpunit-snapshot-assertions": "^5.1",
+        "symfony/clock": "^6 || ^7",
+        "symfony/framework-bundle": "^6 || ^7",
+        "symfony/psr-http-message-bridge": "^6 || ^7",
         "symfony/test-pack": "^1.0"
     },
     "autoload": {
