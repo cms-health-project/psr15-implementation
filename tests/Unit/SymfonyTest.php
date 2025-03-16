@@ -44,6 +44,9 @@ class SymfonyTest extends WebTestCase
                     $container->loadFromExtension('framework', [
                         'test' => null,
                         'router' => ['resource' => 'kernel::loadRoutes', 'type' => 'service', 'utf8' => true],
+                        'http_method_override' => false,
+                        'handle_all_throwables' => true,
+                        'php_errors' => ['log' => true],
                     ]);
 
                     $container->register('kernel', self::class)

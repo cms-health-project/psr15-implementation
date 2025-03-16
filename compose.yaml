@@ -6,9 +6,3 @@ services:
       - .:/app
     environment:
       - PHP_CS_FIXER_IGNORE_ENV=1
-
-  composer:
-    image: composer
-    working_dir: /app
-    volumes:
-      - .:/app
