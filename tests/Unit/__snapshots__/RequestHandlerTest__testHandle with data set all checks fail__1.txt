@@ -1,0 +1,39 @@
+{
+    "status": "fail",
+    "version": "1",
+    "serviceId": "test-service",
+    "description": "test-description",
+    "time": "2024-01-01T00:01:00+00:00",
+    "checks": {
+        "doctrine:connection": [
+            {
+                "componentId": "database",
+                "componentType": "dummy_select",
+                "status": "fail",
+                "time": "2024-01-01T00:01:00+00:00",
+                "output": "An exception occurred in the driver: could not find driver",
+                "observedValue": "0",
+                "observedUnit": "ms"
+            }
+        ],
+        "http:request": [
+            {
+                "componentId": "httpRequest",
+                "status": "fail",
+                "time": "2024-01-01T00:01:00+00:00",
+                "output": "cURL error 6: Could not resolve host: not-existing (see https:\/\/curl.haxx.se\/libcurl\/c\/libcurl-errors.html)",
+                "observedValue": "0",
+                "observedUnit": "ms"
+            },
+            {
+                "componentId": "httpRequest",
+                "componentType": "duration",
+                "status": "fail",
+                "time": "2024-01-01T00:01:00+00:00",
+                "output": "Expected HTTP status code(s) 200, 204 expected, but received . Response: ",
+                "observedValue": "NULL",
+                "observedUnit": "statusCode"
+            }
+        ]
+    }
+}

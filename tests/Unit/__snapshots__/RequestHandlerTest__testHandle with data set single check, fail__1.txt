@@ -1,0 +1,20 @@
+{
+    "status": "fail",
+    "version": "1",
+    "serviceId": "test-service",
+    "description": "test-description",
+    "time": "2024-01-01T00:01:00+00:00",
+    "checks": {
+        "doctrine:connection": [
+            {
+                "componentId": "database",
+                "componentType": "dummy_select",
+                "status": "fail",
+                "time": "2024-01-01T00:01:00+00:00",
+                "output": "An exception occurred in the driver: could not find driver",
+                "observedValue": "0",
+                "observedUnit": "ms"
+            }
+        ]
+    }
+}

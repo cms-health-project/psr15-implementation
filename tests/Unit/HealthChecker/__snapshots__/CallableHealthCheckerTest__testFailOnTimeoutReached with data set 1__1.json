@@ -1,0 +1,11 @@
+[
+    {
+        "componentId": "component-id",
+        "componentType": "component-type",
+        "status": "warn",
+        "time": "2024-01-15T12:43:41+00:00",
+        "output": "Response time threshold 500ms surpassed",
+        "observedValue": "7223",
+        "observedUnit": "ms"
+    }
+]

@@ -1,0 +1,19 @@
+{
+    "status": "pass",
+    "version": "1",
+    "serviceId": "test-service",
+    "description": "test-description",
+    "time": "2024-01-01T00:01:00+00:00",
+    "checks": {
+        "example:test": [
+            {
+                "componentId": "baz",
+                "componentType": "component",
+                "status": "pass",
+                "time": "2024-01-01T00:01:00+00:00",
+                "observedValue": "0",
+                "observedUnit": "ms"
+            }
+        ]
+    }
+}

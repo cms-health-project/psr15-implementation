@@ -1,0 +1,11 @@
+[
+    {
+        "componentId": "component-id",
+        "componentType": "component-type",
+        "status": "fail",
+        "time": "2025-03-16T12:02:13+00:00",
+        "output": "foobar",
+        "observedValue": "1000",
+        "observedUnit": "ms"
+    }
+]
