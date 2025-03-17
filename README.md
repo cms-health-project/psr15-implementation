@@ -2,7 +2,7 @@
 
 ## Introduction
 
-To have a [PSR-15 compatible request handler](https://www.php-fig.org/psr/psr-15/) for the [CMS health check RFC](https://github.com/cms-health-project/health-check-rfc) this repo is built using [https://github.com/eqsgroup/health-check-provider]() as a base but using [https://github.com/cms-health-project/serializable-reference-implementation]() for the actual implementation of the output schema which got slightly adjusted from the original RFC.
+To have a [PSR-15 compatible request handler](https://www.php-fig.org/psr/psr-15/) for the [CMS health check RFC](https://github.com/cms-health-project/health-check-rfc) this repo is built using [eqsgroup/health-check-provider](https://github.com/eqsgroup/health-check-provider) as a base but using [cms-health-project/serializable-reference-implementation](https://github.com/cms-health-project/serializable-reference-implementation) for the actual implementation of the output schema which got slightly adjusted from the original RFC.
 
 This was created during [CloudFest Hackathon 2025](https://hackathon.cloudfest.com/project/cms-health-checks-2025/).
 
