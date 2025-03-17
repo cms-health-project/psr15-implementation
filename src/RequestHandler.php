@@ -5,12 +5,14 @@ declare(strict_types=1);
 namespace CmsHealthProject\Psr15Implementation;
 
 use CmsHealth\Definition\HealthCheckStatus;
+use CmsHealthProject\Psr15Implementation\EventDispatcher\CollectHealthCheckResultsEvent;
 use CmsHealthProject\Psr15Implementation\HealthChecker\HealthCheckerInterface;
 use CmsHealthProject\SerializableReferenceImplementation\Check;
 use CmsHealthProject\SerializableReferenceImplementation\CheckCollection;
 use CmsHealthProject\SerializableReferenceImplementation\HealthCheck;
 use DateTimeImmutable;
 use Psr\Clock\ClockInterface;
+use Psr\EventDispatcher\EventDispatcherInterface;
 use Psr\Http\Message\ResponseFactoryInterface;
 use Psr\Http\Message\ResponseInterface;
 use Psr\Http\Message\ServerRequestInterface;
@@ -30,13 +32,14 @@ class RequestHandler implements RequestHandlerInterface
         private readonly string $serviceId,
         private readonly string $description,
         private readonly array $healthCheckers,
-        private ?ClockInterface $clock = null,
+        private readonly ?ClockInterface $clock = null,
+        private readonly ?EventDispatcherInterface $eventDispatcher = null,
     ) {
     }
 
     public function handle(ServerRequestInterface $request): ResponseInterface
     {
-        /** @var array{names?: string[]} $queryParams */
+        /** @var array{names?: non-empty-list<string>} $queryParams */
         $queryParams = $request->getQueryParams();
         $checkNames = $queryParams['names'] ?? null;
 
@@ -50,7 +53,7 @@ class RequestHandler implements RequestHandlerInterface
     }
 
     /**
-     * @param string[]|null $filterByCheckNames
+     * @param non-empty-list<string>|null $filterByCheckNames
      */
     protected function getHealthCheck(?array $filterByCheckNames = null): HealthCheck
     {
@@ -66,22 +69,24 @@ class RequestHandler implements RequestHandlerInterface
     }
 
     /**
-     * @param string[]|null $filterByCheckNames
+     * @param non-empty-list<string>|null $filterByCheckNames
      */
     protected function getCheckCollection(?array $filterByCheckNames = null): CheckCollection
     {
-        $checks = new CheckCollection();
+        $event = new CollectHealthCheckResultsEvent($filterByCheckNames);
+        $this->eventDispatcher?->dispatch($event);
 
-        array_map(
-            static fn (Check $check) => $checks->addCheck($check),
-            $this->getCheckResults($filterByCheckNames),
-        );
+        /** @var Check[] $checks */
+        $checks = [
+            ...$this->getCheckResults($filterByCheckNames),
+            ...$event->getChecks(),
+        ];
 
-        return $checks;
+        return new CheckCollection($checks);
     }
 
     /**
-     * @param string[]|null $filterByCheckNames
+     * @param non-empty-list<string>|null $filterByCheckNames
      *
      * @return Check[]
      */
