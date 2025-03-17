@@ -1,0 +1,19 @@
+{
+    "status": "fail",
+    "version": "1",
+    "serviceId": "test-service",
+    "description": "test-description",
+    "time": "2024-01-01T00:01:00+00:00",
+    "checks": {
+        "event-dispatcher:one": [
+            {
+                "status": "info"
+            }
+        ],
+        "event-dispatcher:two": [
+            {
+                "status": "fail"
+            }
+        ]
+    }
+}
